@@ -19,6 +19,7 @@ export default createGlobalStyle`
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text_primary};
     -webkit-font-smoothing: antialiased;
+    overflow-y: auto;
   }
 
   h1 {

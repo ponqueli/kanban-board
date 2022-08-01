@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  height: 5.71rem;
-  padding: 0  2.14rem;
+  height: 5rem;
+  width: 100%;
+  padding: 0  2rem;
   background-color: ${({ color }) => color};
 
   display: flex;
@@ -13,7 +14,7 @@ export const Container = styled.header`
 `;
 
 export const SwitchIcon = styled.img`
-  margin: 0.28rem;
+  margin: 0.25rem;
   height: 70%;
   width: 70%;
 `;
