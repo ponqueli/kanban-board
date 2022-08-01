@@ -84,5 +84,6 @@ export const CategoryCard = styled.div`
     font-weight: 500;
     font-size: 0.85rem;
     color: ${({ theme }) => theme.colors.onPrimary};
+    cursor: grab;
   }
 `;
