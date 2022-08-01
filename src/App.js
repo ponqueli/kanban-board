@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { ModalProvider } from './hooks/useModal';
 import KanbanBoard from './components/KanbanBoard';
 import GlobalStyle from './styles/global';
 import lightTheme from './styles/themes/light';
@@ -14,8 +15,10 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <KanbanBoard toggleTheme={toggleTheme}/>
-      <GlobalStyle />
+      <ModalProvider>
+        <KanbanBoard toggleTheme={toggleTheme}/>
+        <GlobalStyle />
+      </ModalProvider>
     </ThemeProvider>
   );
 }
