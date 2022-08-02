@@ -2,7 +2,7 @@ import { createContext, useState, useContext } from "react";
 
 const ModalContext = createContext();
 
-const ModalProvider = ({ children}) => {
+const ModalProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(undefined);
 

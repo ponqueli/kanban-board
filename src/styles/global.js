@@ -1,18 +1,26 @@
 import { createGlobalStyle } from 'styled-components';
 import { SCREEN_BREAKPOINTS_ENUM } from '../constants/breakpoints';
 
-export default createGlobalStyle`
-
+export const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
-    outline: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
   }
 
-  html, body, #root {
-    height: 100%;
+  html {
+    @media (max-width: ${SCREEN_BREAKPOINTS_ENUM.LARGE}px) {
+      font-size: 93.75%; //15px
+    }
+
+    @media (max-width: ${SCREEN_BREAKPOINTS_ENUM.MEDIUM}px) {
+      font-size: 87.5%; //14px
+    }
+
+    @media (max-width:  ${SCREEN_BREAKPOINTS_ENUM.TINY}px) {
+      font-size: 75%; //12px
+    }
   }
 
   body {
@@ -33,6 +41,18 @@ export default createGlobalStyle`
     }
   }
 
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  p {
+    color: ${({ theme }) => theme.colors.text_tertiary};
+  }
+
   button {
     cursor: pointer;
   }
@@ -42,7 +62,7 @@ export default createGlobalStyle`
     opacity: 0.6;
   }
 
-  .react-modal-overlay {
+  .modal-modal-overlay {
     background: rgba(0, 0, 0, 0.5);
 
     position: fixed;
@@ -54,6 +74,7 @@ export default createGlobalStyle`
     display: flex;
     align-items: center;
     justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
 
     @media screen and (max-width: 42.5rem){ 
       align-items: flex-end;
@@ -63,10 +84,13 @@ export default createGlobalStyle`
   .react-modal-content {
     width: 100%;
     max-width: 36rem;
+    min-height: 33rem ;
+    width: 36rem;
     background: var(--background);
     padding: 3rem;
     position: relative;
     border-radius: 0.3125rem;
+    background-color: ${({theme}) => theme.colors.components_background};
 
     @media screen and (max-width: 69rem) {
       padding: 1.5rem;
