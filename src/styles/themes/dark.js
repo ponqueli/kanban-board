@@ -5,8 +5,8 @@ const darkTheme = {
     onPrimary: '#FFFFFF',
     primary: '#EB622F',
     feature: '#F47E52',
-    bug: '#DB4B4B',
-    deploy: '#61D856',
+    bug: '#E52E4D',
+    improvement: '#33CC95',
     infra: '#131FC2',
     refactor: '#7352CF',
     text_primary: '#BBBBBB',
@@ -19,7 +19,9 @@ const darkTheme = {
     switch: '#505050',
     scrollbar_background: '#2E2E2E',
     scrollbar_thumb: '#505050',
-    scrollbar_thumb_hover: '#636363'
+    scrollbar_thumb_hover: '#636363',
+    save: '#fff',
+    disabled: '#E7E7E7',
   }
 };
 

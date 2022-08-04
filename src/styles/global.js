@@ -127,4 +127,25 @@ export const GlobalStyle = createGlobalStyle`
       right: 0.5rem;
     }
   }
+
+  ::-webkit-scrollbar {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors.scrollbar_background};
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.scrollbar_thumb};
+    border-radius: 0.5rem;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => theme.colors.scrollbar_thumb_hover};
+  }
 `;

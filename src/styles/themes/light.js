@@ -6,7 +6,7 @@ const lightTheme = {
     primary: '#EB622F',
     feature: '#F47E52',
     bug: '#DB4B4B',
-    deploy: '#61D856',
+    improvement: '#61D856',
     refactor: '#7352CF',
     infra: '#131FC2',
     text_primary: '#656565',
@@ -20,6 +20,8 @@ const lightTheme = {
     scrollbar_background: '#E7E7E7',
     scrollbar_thumb: '#D0D0D0',
     scrollbar_thumb_hover: '#BBBBBB',
+    save: '#fff',
+    disabled: '#E7E7E7',
   },
 }
 
