@@ -25,8 +25,7 @@ export default function List({ title, tasks, creatable }) {
         {tasks.map(task =>
           <Card 
             key={task.id}
-            title={task.title} 
-            category={task.category}
+            task={task}
           />)}
       </ul>
     </Container>

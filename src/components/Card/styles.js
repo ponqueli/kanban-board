@@ -67,6 +67,16 @@ export const CardBottom = styled.div`
   width: 100%;
   p {
     font-size: 0.875rem;
+    &.onHover{
+      transition: filter 0.2s;
+      transition: transform 0.2s;
+      border-bottom: transparent;
+      
+      &:hover {
+        filter: brightness(0.9);
+        transform: scale(1.05);
+      }
+    }
     cursor: pointer;
   }
 `;

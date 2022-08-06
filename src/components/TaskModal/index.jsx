@@ -117,7 +117,7 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
       </button>
 
       <Container onSubmit={handleCreateNewTask}>
-        <h2> Nova tarefa</h2>
+        <h2>{selectedCard?.id?`Você está editando 🐱`: "Nova Tarefa"}</h2>
         <Input
           type="text"
           placeholder="Título"

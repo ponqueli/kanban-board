@@ -1,4 +1,6 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { useModal } from "../../hooks/useModal";
+import { getCategoryBackgroundColor } from "../../helpers/helpers";
 import { ThemeContext } from 'styled-components';
 import {
   Container,
@@ -8,9 +10,18 @@ import {
   Label,
 } from './styles';
 
-export default function Card({ title, category }) {
+export default function Card({ task }) {
+  const { title, category } = task;
   const theme = useContext(ThemeContext);
   const [color, setColor] = useState(theme.colors.primary);
+  const { toggleModalVisibility } = useModal();
+
+  useEffect(() => {
+    if (category) {
+      const categoryColor = getCategoryBackgroundColor(theme, category);
+      setColor(categoryColor);
+    }
+  }, [category])
 
   return (
     <Container>
@@ -22,7 +33,12 @@ export default function Card({ title, category }) {
         <CategoryCard color={color}>
           <p>{category}</p>
         </CategoryCard>
-        <p>view more</p>
+        <p 
+          className="onHover" 
+          onClick={() => toggleModalVisibility(task)}
+        >
+          👉view more👈
+        </p>
       </CardBottom>
     </Container>
   );
