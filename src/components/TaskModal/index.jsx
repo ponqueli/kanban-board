@@ -2,10 +2,11 @@ import {
   useContext, 
   useState 
 } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import { ThemeContext } from 'styled-components';
 import Modal from "react-modal";
 import { useModal } from "../../hooks/useModal";
-import { CATEGORIES_ENUM } from "../../constants/categoriesEnum";
+import { CATEGORIES_ENUM, STATUS_ENUM } from "../../constants/enums";
 import { 
   Container, 
   Input, 
@@ -53,6 +54,25 @@ const TaskModal= ({ isOpen, toggleModalVisibility }) => {
       setValidationMessage("Title is required");
       return;
     }
+
+    setValidationMessage(undefined);
+
+    if(!selectedCard?.id){
+      const newCard = {
+        id: uuidv4(),
+        title,
+        description,
+        category: cardCategory,
+        status: STATUS_ENUM.BACKLOG,
+        hidden: false,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
+
+
+
+    }
+
   }  
 
   const validateInputAndSet = (value)=>{
@@ -125,4 +145,3 @@ const TaskModal= ({ isOpen, toggleModalVisibility }) => {
 };
 
 export default TaskModal;
-

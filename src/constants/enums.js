@@ -5,3 +5,11 @@ export const CATEGORIES_ENUM = {
   REFACTOR: 'refactor',
   INFRA: 'infra'
 }
+
+export const STATUS_ENUM = {
+  BACKLOG:'Backlog',
+  TO_DO:'To Do',
+  DOING:'Doing',
+  IN_REVIEW:'In Review',
+  DONE:'Done'
+}
