@@ -18,7 +18,8 @@ export default function KanbanBoard({ toggleTheme }) {
           title={title}
           colors={colors}
           toggleTheme={toggleTheme}
-        ></Header>
+        >
+        </Header>
         <Board />
       </Container>
       <TaskModal

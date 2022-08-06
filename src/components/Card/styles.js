@@ -81,9 +81,10 @@ export const CategoryCard = styled.div`
   padding: 0.3125rem 0.625rem;
 
   p {
+    text-transform: uppercase;
+    color: #fff;
     font-weight: 500;
-    font-size: 0.85rem;
-    color: ${({ theme }) => theme.colors.onPrimary};
+    font-size: 0.75rem;
     cursor: grab;
   }
 `;

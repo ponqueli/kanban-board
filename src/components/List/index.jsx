@@ -5,24 +5,29 @@ import { MdAdd } from 'react-icons/md';
 import { Container, ContainerHeader } from './styles';
 import Card from '../Card';
 
-export default function List() {
+export default function List({ title, tasks, creatable }) {
   const theme = useContext(ThemeContext); 
   const { toggleModalVisibility, selectedCard } = useModal();
   return (
     <Container>
       <ContainerHeader>
-        <h2>Tarefas</h2>
-        <button 
-          type='button'
-          onClick={() => toggleModalVisibility({})}
-          >
-          <MdAdd size={24} color='#FFF' />
-        </button>
+        <h2>{title}</h2>
+        {!creatable &&
+          <button 
+            type='button'
+            onClick={() => toggleModalVisibility({})}
+            >
+            <MdAdd size={24} color='#FFF' />
+          </button>
+        }
       </ContainerHeader>
       <ul>
-       <Card />
-       <Card />
-       <Card />
+        {tasks.map(task =>
+          <Card 
+            key={task.id}
+            title={task.title} 
+            category={task.category}
+          />)}
       </ul>
     </Container>
   );

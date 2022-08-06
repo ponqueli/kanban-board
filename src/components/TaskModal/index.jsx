@@ -1,64 +1,63 @@
-import { 
-  useContext, 
-  useState 
-} from "react";
+import { useContext, useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { ThemeContext } from 'styled-components';
-import Modal from "react-modal";
-import { useModal } from "../../hooks/useModal";
-import { CATEGORIES_ENUM, STATUS_ENUM } from "../../constants/enums";
-import { 
-  Container, 
-  Input, 
-  TextArea, 
-  CategoryContainer, 
-  RadioAndLabelContainer, 
-  ValidationMessage 
-} from "./styles";
-import closeImg from "../../assets/close.svg";
+import Modal from 'react-modal';
+import { useDispatch } from 'react-redux';
+import { addTask, updateTask } from '../../store/tasks.slice';
+import { updatedColumns } from '../../store/columns.slice';
+import { useModal } from '../../hooks/useModal';
+import { CATEGORIES_ENUM, STATUS_ENUM } from '../../constants/enums';
+import { getCategoryBackgroundColor } from "../../helpers/helpers";
+import {
+  Container,
+  Input,
+  TextArea,
+  CategoryContainer,
+  RadioAndLabelContainer,
+  ValidationMessage,
+} from './styles';
+import closeImg from '../../assets/close.svg';
 import { IoWarningOutline } from 'react-icons/io5';
 
-const TaskModal= ({ isOpen, toggleModalVisibility }) => {
-  const theme = useContext(ThemeContext); 
+const TaskModal = ({ isOpen, toggleModalVisibility }) => {
+  const dispatch = useDispatch();
+
+  const theme = useContext(ThemeContext);
   const { selectedCard } = useModal();
 
-  const [title, setTitle] = useState(selectedCard?.title ? selectedCard?.title : "");
-  const [description, setDescription] = useState(selectedCard?.description ? selectedCard.description : "");
-  const [cardCategory, setCardCategory] = useState(selectedCard?.category || "feature");
-  const [validationMessage, setValidationMessage] = useState("");
-  
+  const [title, setTitle] = useState(
+    selectedCard?.title ? selectedCard?.title : ''
+  );
+  const [description, setDescription] = useState(
+    selectedCard?.description ? selectedCard.description : ''
+  );
+  const [cardCategory, setCardCategory] = useState(
+    selectedCard?.category || CATEGORIES_ENUM.FEATURE
+  );
+  const [validationMessage, setValidationMessage] = useState('');
+
   const handleCloseModal = () => {
     toggleModalVisibility(undefined);
+  };
+
+  function resetForm() {
+    setTitle('');
+    setDescription('');
+    setCardCategory(CATEGORIES_ENUM.FEATURE);
+    setValidationMessage('');
   }
 
-  const getCategoryBackgroundColor = (theme, category) =>{
-    switch(category){
-      case CATEGORIES_ENUM.FEATURE:
-        return theme.colors.feature;
-      case CATEGORIES_ENUM.BUG:
-        return theme.colors.bug;
-      case CATEGORIES_ENUM.IMPROVEMENT:
-        return theme.colors.improvement;
-      case CATEGORIES_ENUM.REFACTOR:
-        return theme.colors.refactor;
-      case CATEGORIES_ENUM.INFRA:
-        return theme.colors.infra;
-      default:
-        return theme.colors.primary;
-    }
-  }
-
-  const handleCreateNewTask = (event) =>{
+  const handleCreateNewTask = (event) => {
     event.preventDefault();
-    if(title.trim().length === 0){
-      setValidationMessage("Title is required");
+    if (title.trim().length === 0) {
+      setValidationMessage('Title is required');
       return;
     }
 
     setValidationMessage(undefined);
 
-    if(!selectedCard?.id){
-      const newCard = {
+    if (!selectedCard?.id) {
+      const newTask = {
         id: uuidv4(),
         title,
         description,
@@ -69,27 +68,49 @@ const TaskModal= ({ isOpen, toggleModalVisibility }) => {
         updatedAt: new Date(),
       };
 
-
-
+      dispatch(addTask(newTask));
+      dispatch(updatedColumns(newTask.id));
+      toggleModalVisibility(undefined);
     }
 
-  }  
+    const updatedTask = {
+      ...selectedCard,
+      title,
+      description,
+      category: cardCategory,
+      updatedAt: new Date(),
+    };
 
-  const validateInputAndSet = (value)=>{
+    dispatch(updateTask(updatedTask));
+    toggleModalVisibility(undefined);
+    resetForm();
+  };
+
+  const validateInputAndSet = (value) => {
     setTitle(value);
-    value.trim().length!== 0 ? setValidationMessage(""): setValidationMessage("Title is required");
-  }
+    value.trim().length !== 0
+      ? setValidationMessage('')
+      : setValidationMessage('Title is required');
+  };
 
-  return(
+  useEffect(() => {
+    setTitle(selectedCard?.title ? selectedCard?.title : '');
+    setDescription(selectedCard?.description ? selectedCard.description : '');
+    setCardCategory(selectedCard?.category || CATEGORIES_ENUM.FEATURE);
+  }, [selectedCard, isOpen]);
+
+  if(!isOpen) return null;
+
+  return (
     <Modal
       isOpen={isOpen}
       onRequestClose={handleCloseModal}
       overlayClassName="modal-modal-overlay"
       className="react-modal-content"
     >
-      <button 
-        className='react-modal-close'
-        type='button' 
+      <button
+        className="react-modal-close"
+        type="button"
         onClick={handleCloseModal}
       >
         <img src={closeImg} alt="Botão X para Fechar modal" />
@@ -97,8 +118,8 @@ const TaskModal= ({ isOpen, toggleModalVisibility }) => {
 
       <Container onSubmit={handleCreateNewTask}>
         <h2> Nova tarefa</h2>
-        <Input 
-          type="text" 
+        <Input
+          type="text"
           placeholder="Título"
           value={title}
           maxLength={50}
@@ -107,7 +128,7 @@ const TaskModal= ({ isOpen, toggleModalVisibility }) => {
         />
         {validationMessage && (
           <ValidationMessage>
-            <IoWarningOutline size={21}/> {validationMessage}
+            <IoWarningOutline size={21} /> {validationMessage}
           </ValidationMessage>
         )}
 
@@ -119,10 +140,12 @@ const TaskModal= ({ isOpen, toggleModalVisibility }) => {
 
         <CategoryContainer>
           {Object.values(CATEGORIES_ENUM).map((category) => (
-            <RadioAndLabelContainer 
+            <RadioAndLabelContainer
               key={category}
               className="radio-and-label-container"
-              backgroundColor={()=>getCategoryBackgroundColor(theme, category)}
+              backgroundColor={() =>
+                getCategoryBackgroundColor(theme, category)
+              }
             >
               <label>
                 <input
@@ -133,15 +156,15 @@ const TaskModal= ({ isOpen, toggleModalVisibility }) => {
                   onChange={(e) => setCardCategory(e.currentTarget.value)}
                 />
                 <span>{category}</span>
-              </label>  
-            </RadioAndLabelContainer>  
+              </label>
+            </RadioAndLabelContainer>
           ))}
         </CategoryContainer>
-        
+
         <button type="submit"> Save to Backlog </button>
-      </Container>  
+      </Container>
     </Modal>
-  )
+  );
 };
 
 export default TaskModal;

@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { Provider } from 'react-redux';
 import Modal from "react-modal";
 import { ThemeProvider } from 'styled-components';
 import { ModalProvider } from './hooks/useModal';
+import store from './store';
 import KanbanBoard from './components/KanbanBoard';
 import { GlobalStyle } from "./styles/global";
 import lightTheme from './styles/themes/light';
@@ -17,12 +19,14 @@ function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <ModalProvider>
-        <KanbanBoard toggleTheme={toggleTheme}/>
-      </ModalProvider>
-      <GlobalStyle />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <ModalProvider>
+          <KanbanBoard toggleTheme={toggleTheme}/>
+        </ModalProvider>
+        <GlobalStyle />
+      </ThemeProvider>
+    </Provider>
   );
 }
 
