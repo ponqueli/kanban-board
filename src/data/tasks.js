@@ -50,6 +50,16 @@ const mockTasks = [
     createdAt: "2020-01-01",
     updatedAt: "2020-01-01",
     hidden: false,
+  },
+  {
+    id: "55cac86a-c223-4eed-992a-e231e9232d42",
+    title: "Task 6",
+    description: "Task 6 description",
+    category: CATEGORIES_ENUM.FEATURE,
+    status: STATUS_ENUM.BACKLOG,
+    createdAt: "2020-01-01",
+    updatedAt: "2020-01-01",
+    hidden: false,
   }
 ];
 

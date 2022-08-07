@@ -11,7 +11,7 @@ export const Container = styled.div`
   opacity:  ${({ hideCard }) => hideCard ? 0.2 : 1};
   width: 18.75rem;
   height: 6.87rem;
-  margin: 0.7rem 0;
+  margin: 0.7rem 0.7rem;
   padding: 1.2rem 1rem 0.7rem 1rem;
 
   border-radius: 0.5rem;

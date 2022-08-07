@@ -26,8 +26,8 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text_primary};
+    overflow-y: hidden;
     -webkit-font-smoothing: antialiased;
-    overflow-y: auto;
   }
 
   h1 {
@@ -90,7 +90,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 3rem;
     position: relative;
     border-radius: 0.3125rem;
-    background-color: ${({theme}) => theme.colors.components_background};
+    background-color: ${({ theme }) => theme.colors.components_background};
 
     @media screen and (max-width: 69rem) {
       padding: 1.5rem;
@@ -129,8 +129,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar {
-    width: 0.75rem;
-    height: 0.75rem;
+    width: 0.95rem;
+    height: 0.95rem;
   }
 
   /* Track */

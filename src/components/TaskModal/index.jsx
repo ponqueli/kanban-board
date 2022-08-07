@@ -113,14 +113,14 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
         type="button"
         onClick={handleCloseModal}
       >
-        <img src={closeImg} alt="Botão X para Fechar modal" />
+        <img src={closeImg} alt="X Button to close modal" />
       </button>
 
       <Container onSubmit={handleCreateNewTask}>
-        <h2>{selectedCard?.id?`Você está editando 🐱`: "Nova Tarefa"}</h2>
+        <h2>{selectedCard?.id?`You Are Editing 🐱`: "New Task"}</h2>
         <Input
           type="text"
-          placeholder="Título"
+          placeholder="Title"
           value={title}
           maxLength={50}
           onChange={(event) => validateInputAndSet(event.target.value)}
@@ -133,7 +133,7 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
         )}
 
         <TextArea
-          placeholder="Descrição"
+          placeholder="Description"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
         />
@@ -161,7 +161,7 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
           ))}
         </CategoryContainer>
 
-        <button type="submit"> Save to Backlog </button>
+        <button type="submit">{selectedCard?.id?`Save`: `Add to Backlog`}</button>
       </Container>
     </Modal>
   );
