@@ -5,13 +5,9 @@ export const Container = styled.div`
   height: 100%;
   flex: 0 0 20rem;
 
-  border-right: 1px solid ${({ theme }) => theme.colors.border};
+  opacity: ${({ isDone }) => isDone ? 0.6 : 1};
 
-  ul {
-    height: 65vh;
-    overflow-y: auto;
-    margin-top: 1.875rem;
-  }
+  border-right: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
 export const ContainerHeader = styled.header`
@@ -39,4 +35,10 @@ export const ContainerHeader = styled.header`
       opacity: 0.8;
     }
   }
+`;
+
+export const TaskList = styled.ul`
+  height: 65vh;
+  overflow-y: auto;
+  margin-top: 1.875rem;
 `;

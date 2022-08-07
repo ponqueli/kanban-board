@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Provider } from 'react-redux';
 import Modal from "react-modal";
 import { ThemeProvider } from 'styled-components';
+
 import { ModalProvider } from './hooks/useModal';
 import store from './store';
 import KanbanBoard from './components/KanbanBoard';
@@ -23,8 +24,8 @@ function App() {
       <ThemeProvider theme={theme}>
         <ModalProvider>
           <KanbanBoard toggleTheme={toggleTheme}/>
+          <GlobalStyle />
         </ModalProvider>
-        <GlobalStyle />
       </ThemeProvider>
     </Provider>
   );

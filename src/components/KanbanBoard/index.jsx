@@ -22,6 +22,7 @@ export default function KanbanBoard({ toggleTheme }) {
         </Header>
         <Board />
       </Container>
+      
       <TaskModal
         isOpen={isOpen}
         toggleModalVisibility={toggleModalVisibility}

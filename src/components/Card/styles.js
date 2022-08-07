@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   cursor: grab;
@@ -25,6 +25,17 @@ export const Container = styled.div`
     border-radius: 0.125rem;
     margin-top: 0.3125rem;
   }
+
+  /* ${({ isDragging }) => isDragging && css`
+    border: 2px dashed ${({ theme }) => theme.colors.border};
+    //padding-top: 31px;
+    background: transparent;
+    box-shadow: none;
+    cursor: grabbing;
+    p, header, div {
+      opacity: 0;
+    }
+  `};   */
 `;
 
 export const CardBorder = styled.div`
