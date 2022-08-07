@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  height: 5rem;
-  width: 100%;
+  height: 15vh;
+  width: 100vw;
   padding: 0  2rem;
   background-color: ${({ color }) => color};
   border-bottom-left-radius: 1rem;

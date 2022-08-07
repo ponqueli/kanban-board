@@ -26,7 +26,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text_primary};
-    overflow-y: hidden;
+    overflow:hidden;
     -webkit-font-smoothing: antialiased;
   }
 
