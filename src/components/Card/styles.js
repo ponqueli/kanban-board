@@ -77,12 +77,12 @@ export const CardBottom = styled.div`
   width: 100%;
 `;
 
-export const ViewOrEditButton = styled.div`
+export const DeleteButton = styled.div`
   svg {
     transition: filter 0.2s;
     transition: transform 0.2s;
     border-bottom: transparent;
-    color: ${({ color }) => color};
+    color: ${({theme}) => theme.colors.bug};
     
     &:hover {
       filter: brightness(0.9);
