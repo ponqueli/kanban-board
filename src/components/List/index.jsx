@@ -1,13 +1,11 @@
-import { useContext } from 'react';
 import { Droppable } from 'react-beautiful-dnd';
-import { ThemeContext } from 'styled-components';
 import { useModal } from '../../hooks/useModal';
 import { STATUS_ENUM } from '../../constants/enums';
 import { MdAdd } from 'react-icons/md';
 import { Container, ContainerHeader, TaskList } from './styles';
 import Card from '../Card';
 
-export default function List({ index, status, title, tasks, creatable }) {
+export default function List({ status, tasks, title, index, creatable }) {
   const { toggleModalVisibility } = useModal();
   return (
     <Container isDone={title === STATUS_ENUM.DONE}>
@@ -20,14 +18,12 @@ export default function List({ index, status, title, tasks, creatable }) {
         )}
       </ContainerHeader>
       <Droppable droppableId={status}>
-        {(provided) => (
+        {provided => (
           <TaskList
-            ref={provided.innerRef}
-            {...provided.droppableProps}
-            >
+            ref={provided.innerRef} {...provided.droppableProps}>
             {tasks
               .filter(task => task.status === status)
-              .map((task) => (<Card key={task.id} task={task} index={index} />))
+              .map((task,index) => <Card key={task.id} task={task} index={index} />)
             }
             {provided.placeholder}
           </TaskList>

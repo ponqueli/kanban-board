@@ -16,33 +16,34 @@ import {
 } from './styles';
 
 export default function Card({ task, index }) {
-  const { title, category, id } = task;
   const theme = useContext(ThemeContext);
   const [color, setColor] = useState(theme.colors.primary);
   const { toggleModalVisibility } = useModal();
 
   useEffect(() => {
-    if (category) {
-      const categoryColor = getCategoryBackgroundColor(theme, category);
+    if (task) {
+      const categoryColor = getCategoryBackgroundColor(theme, task.category);
       setColor(categoryColor);
     }
-  }, [category]);
+  }, [task]);
 
   return (
-    <Draggable draggableId={id} index={index}>
-     {(provided) => (
+    <Draggable draggableId={task.id} index={index}>
+     {(provided, snapshot) => (
         <Container
-          ref={provided.innerRef}
-          {...provided.draggableProps}
+          ref={provided.innerRef} 
+          {...provided.draggableProps} 
           {...provided.dragHandleProps}
+          isDragging= {snapshot.isDragging}
+          color={color}
         >
           <header>
             <CardBorder color={color} />
-            <Label>{title}</Label>
+            <Label>{task.title}</Label>
           </header>
           <CardBottom>
             <CategoryCard color={color}>
-              <p>{category}</p>
+              <p>{task.category}</p>
             </CategoryCard>
             <p 
               className="onHover" 

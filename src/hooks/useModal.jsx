@@ -4,13 +4,13 @@ const ModalContext = createContext();
 
 const ModalProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState(undefined);
+  const [selectedTask, setSelectedTask] = useState(undefined);
 
-  const toggleModalVisibility = (card) => {
-    if(card){
-      setSelectedCard(card);
+  const toggleModalVisibility = (task) => {
+    if(task){
+      setSelectedTask(task);
     }else{
-      setSelectedCard(undefined);
+      setSelectedTask(undefined);
     }
     setIsOpen(!isOpen);
   }
@@ -19,7 +19,7 @@ const ModalProvider = ({ children }) => {
     <ModalContext.Provider value={{
       isOpen,
       toggleModalVisibility,
-      selectedCard
+      selectedTask
     }}>
       {children}
     </ModalContext.Provider>

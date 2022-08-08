@@ -17,7 +17,8 @@ export const tasksSlice = createSlice({
       state.searchText = action.payload;
     },
     addTask: (state, action) => {
-      state.tasks = [...state.tasks, action.payload];
+      const task = action.payload;
+      state.tasks = [...state.tasks, task]
     },
     updateTask: (state, action) => {
       const taskId = action.payload.id;
@@ -33,7 +34,7 @@ export const tasksSlice = createSlice({
       const searchText = state.searchText;
       const categories = action.payload.categories;
 
-      const filteredTasks = [...state.cards]
+      const filteredTasks = [...state.tasks]
         .map(task => {
           if(searchText.length > 0){
             if(task.title.toUpperCase()
@@ -44,16 +45,18 @@ export const tasksSlice = createSlice({
             if(categories.includes(task.category)) return {...task, hidden: false};
           }
           return {...task, hidden: true};
-
         }
       );
 
       state.tasks = filteredTasks;
     },
-    clearFilters: (state, action) => {
-      state.tasks = [...state.tasks].map(task => {
-        return {...task, hidden: false};
-      });
+    clearFilters: (state) => {
+      const clearedFiltersTasks = state.tasks.map(task => ({
+        ...task,
+        hidden: false
+      }));
+
+      state.tasks = clearedFiltersTasks;
     }
   }
 });

@@ -26,31 +26,32 @@ export const Container = styled.div`
     margin-top: 0.3125rem;
   }
 
-  /* ${({ isDragging }) => isDragging && css`
-    border: 2px dashed ${({ theme }) => theme.colors.border};
-    //padding-top: 31px;
-    background: transparent;
-    box-shadow: none;
+  
+
+  ${({ isDragging }) => isDragging && css`
+    border: 2px solid #fff;
+    box-shadow: 0 0 .2rem #fff,
+            0 0 .2rem #fff,
+            0 0 2rem ${({color}) => color},
+            0 0 0.8rem ${({color}) => color},
+            0 0 2.8rem ${({color}) => color},
+            inset 0 0 1.3rem ${({color}) => color}; 
     cursor: grabbing;
-    p, header, div {
-      opacity: 0;
-    }
-  `};   */
+  `}; 
 `;
 
 export const CardBorder = styled.div`
   position: absolute;
-  width: calc(100% + 2px);
-  top: -1px;
-  left: -1px;
+  width: calc(100% + 0.22px);
+  top: 0px;
+  left: 0px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  height: 10px;
+  height: 11px;
   background-color: ${({color}) => color};
 
   &:before{
     content: '';
-    height: 0.5px;
     width: 80px;
     background-color: #ffffff;
     position: absolute;

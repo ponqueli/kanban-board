@@ -23,16 +23,16 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
   const dispatch = useDispatch();
 
   const theme = useContext(ThemeContext);
-  const { selectedCard } = useModal();
+  const { selectedTask } = useModal();
 
   const [title, setTitle] = useState(
-    selectedCard?.title ? selectedCard?.title : ''
+    selectedTask?.title ? selectedTask?.title : ''
   );
   const [description, setDescription] = useState(
-    selectedCard?.description ? selectedCard.description : ''
+    selectedTask?.description ? selectedTask.description : ''
   );
-  const [cardCategory, setCardCategory] = useState(
-    selectedCard?.category || CATEGORIES_ENUM.FEATURE
+  const [taskCategory, setTaskCategory] = useState(
+    selectedTask?.category || CATEGORIES_ENUM.FEATURE
   );
   const [validationMessage, setValidationMessage] = useState('');
 
@@ -43,7 +43,7 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
   function resetForm() {
     setTitle('');
     setDescription('');
-    setCardCategory(CATEGORIES_ENUM.FEATURE);
+    setTaskCategory(CATEGORIES_ENUM.FEATURE);
     setValidationMessage('');
   }
 
@@ -56,12 +56,12 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
 
     setValidationMessage(undefined);
 
-    if (!selectedCard?.id) {
+    if (!selectedTask?.id) {
       const newTask = {
         id: uuidv4(),
         title,
         description,
-        category: cardCategory,
+        category: taskCategory,
         status: STATUS_ENUM.BACKLOG,
         hidden: false,
         createdAt: new Date(),
@@ -74,10 +74,10 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
     }
 
     const updatedTask = {
-      ...selectedCard,
+      ...selectedTask,
       title,
       description,
-      category: cardCategory,
+      category: taskCategory,
       updatedAt: new Date(),
     };
 
@@ -94,10 +94,10 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
   };
 
   useEffect(() => {
-    setTitle(selectedCard?.title ? selectedCard?.title : '');
-    setDescription(selectedCard?.description ? selectedCard.description : '');
-    setCardCategory(selectedCard?.category || CATEGORIES_ENUM.FEATURE);
-  }, [selectedCard, isOpen]);
+    setTitle(selectedTask?.title ? selectedTask?.title : '');
+    setDescription(selectedTask?.description ? selectedTask.description : '');
+    setTaskCategory(selectedTask?.category || CATEGORIES_ENUM.FEATURE);
+  }, [selectedTask, isOpen]);
 
   if(!isOpen) return null;
 
@@ -117,7 +117,7 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
       </button>
 
       <Container onSubmit={handleCreateNewTask}>
-        <h2>{selectedCard?.id?`You Are Editing 🐱`: "New Task"}</h2>
+        <h2>{selectedTask?.id?`You Are Editing 🐱`: "New Task"}</h2>
         <Input
           type="text"
           placeholder="Title"
@@ -152,8 +152,8 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
                   type="radio"
                   name={category}
                   value={category}
-                  checked={cardCategory === category}
-                  onChange={(e) => setCardCategory(e.currentTarget.value)}
+                  checked={taskCategory === category}
+                  onChange={(e) => setTaskCategory(e.currentTarget.value)}
                 />
                 <span>{category}</span>
               </label>
@@ -161,7 +161,7 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
           ))}
         </CategoryContainer>
 
-        <button type="submit">{selectedCard?.id?`Save`: `Add to Backlog`}</button>
+        <button type="submit">{selectedTask?.id?`Save`: `Add to Backlog`}</button>
       </Container>
     </Modal>
   );
