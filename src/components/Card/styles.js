@@ -78,6 +78,7 @@ export const CardBottom = styled.div`
 `;
 
 export const DeleteButton = styled.div`
+  display: flex;
   svg {
     transition: filter 0.2s;
     transition: transform 0.2s;

@@ -99,7 +99,6 @@ export default function Board() {
           return (
             <List
               key={column.id} 
-              index={index}
               status={column.id} 
               tasks={taskArray}
               title={column.title}

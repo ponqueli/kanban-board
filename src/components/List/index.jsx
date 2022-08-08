@@ -7,12 +7,17 @@ import Card from '../Card';
 
 export default function List({ status, tasks, title, index, creatable }) {
   const { toggleModalVisibility } = useModal();
+
+  const handleCreateNewTask = () => {
+    toggleModalVisibility(undefined);
+  }
+
   return (
     <Container isDone={title === STATUS_ENUM.DONE}>
       <ContainerHeader>
         <h2>{title}</h2>
         {!creatable && (
-          <button type="button" onClick={() => toggleModalVisibility({})}>
+          <button type="button" onClick={handleCreateNewTask}>
             <MdAdd size={24} color="#FFF" />
           </button>
         )}

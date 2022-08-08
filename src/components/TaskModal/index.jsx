@@ -71,6 +71,7 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
       dispatch(addTask(newTask));
       dispatch(updatedColumns(newTask.id));
       toggleModalVisibility(undefined);
+      resetForm();
     }
 
     const updatedTask = {

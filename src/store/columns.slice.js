@@ -22,7 +22,7 @@ export const columnsSlice = createSlice({
       if(column) {
         const updatedColumn = {
           ...column,
-          tasksIds: [...column.tasksIds, taskId], 
+          tasksIds: [taskId,...column.tasksIds], 
         }
 
         state.columns = [updatedColumn, ...columns];

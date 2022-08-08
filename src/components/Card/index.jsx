@@ -3,10 +3,12 @@ import {
   useEffect, 
   useState 
 } from 'react';
+import { useDispatch } from 'react-redux';
+import { ThemeContext } from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
 import { useModal } from '../../hooks/useModal';
+import { deleteTask } from "../../store/tasks.slice";
 import { getCategoryBackgroundColor } from '../../helpers/helpers';
-import { ThemeContext } from 'styled-components';
 import { MdDelete } from 'react-icons/md';
 import {
   Container,
@@ -19,6 +21,7 @@ import {
 
 
 export default function Card({ task, index }) {
+  const dispatch = useDispatch();
   const theme = useContext(ThemeContext);
   const [color, setColor] = useState(theme.colors.primary);
   const { toggleModalVisibility } = useModal();
@@ -29,6 +32,11 @@ export default function Card({ task, index }) {
       setColor(categoryColor);
     }
   }, [task]);
+
+  function handleDeleteTask(event) {
+    event.stopPropagation();
+    dispatch(deleteTask(task.id));
+  }
 
   return (
     <Draggable draggableId={task.id} index={index}>
@@ -51,7 +59,8 @@ export default function Card({ task, index }) {
             </CategoryCard>
 
             <DeleteButton>
-              <MdDelete 
+              <MdDelete
+                onClick={handleDeleteTask} 
                 size={24} 
                 className="onHover"
               />
