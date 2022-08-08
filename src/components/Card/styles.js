@@ -26,8 +26,6 @@ export const Container = styled.div`
     margin-top: 0.3125rem;
   }
 
-  
-
   ${({ isDragging }) => isDragging && css`
     border: 2px solid #fff;
     box-shadow: 0 0 .2rem #fff,
@@ -77,19 +75,20 @@ export const CardBottom = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  p {
-    font-size: 0.875rem;
-    &.onHover{
-      transition: filter 0.2s;
-      transition: transform 0.2s;
-      border-bottom: transparent;
-      
-      &:hover {
-        filter: brightness(0.9);
-        transform: scale(1.05);
-      }
+`;
+
+export const ViewOrEditButton = styled.div`
+  svg {
+    transition: filter 0.2s;
+    transition: transform 0.2s;
+    border-bottom: transparent;
+    color: ${({ color }) => color};
+    
+    &:hover {
+      filter: brightness(0.9);
+      transform: scale(1.05);
+      cursor: pointer;
     }
-    cursor: pointer;
   }
 `;
 

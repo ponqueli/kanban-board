@@ -7,13 +7,16 @@ import { Draggable } from 'react-beautiful-dnd';
 import { useModal } from '../../hooks/useModal';
 import { getCategoryBackgroundColor } from '../../helpers/helpers';
 import { ThemeContext } from 'styled-components';
+import { MdRemoveRedEye } from 'react-icons/md';
 import {
   Container,
   CardBorder,
   CardBottom,
   CategoryCard,
   Label,
+  ViewOrEditButton,
 } from './styles';
+
 
 export default function Card({ task, index }) {
   const theme = useContext(ThemeContext);
@@ -45,12 +48,14 @@ export default function Card({ task, index }) {
             <CategoryCard color={color}>
               <p>{task.category}</p>
             </CategoryCard>
-            <p 
-              className="onHover" 
-              onClick={() => toggleModalVisibility(task)}
-            >
-              👉view more👈
-            </p>
+
+            <ViewOrEditButton color={color}>
+              <MdRemoveRedEye 
+                size={24} 
+                className="onHover" 
+                onClick={() => toggleModalVisibility(task)}
+              />
+            </ViewOrEditButton>
           </CardBottom>
         </Container>
      )}
