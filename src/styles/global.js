@@ -87,7 +87,7 @@ export const GlobalStyle = createGlobalStyle`
     //min-height: 33rem ;
     width: 36rem;
     background: var(--background);
-    padding: 3rem;
+    padding: 2rem;
     position: relative;
     border-radius: 0.3125rem;
     background-color: ${({ theme }) => theme.colors.components_background};

@@ -4,6 +4,8 @@ const ModalContext = createContext();
 
 const ModalProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDecisionModalOpen, setIsDecisionModalOpen] = useState(false);
+  const [taskToDelete, setTaskToDelete] = useState(undefined);
   const [selectedTask, setSelectedTask] = useState(undefined);
 
   const toggleModalVisibility = (task) => {
@@ -15,11 +17,24 @@ const ModalProvider = ({ children }) => {
     setIsOpen(!isOpen);
   }
 
+  const toggleDecisionModalVisibility = (isModalOpen, task) => {
+    if(isModalOpen){
+      setIsDecisionModalOpen(isModalOpen);
+      setTaskToDelete(task);
+    }else{
+      setIsDecisionModalOpen(isModalOpen);
+      setTaskToDelete(undefined);
+    }
+  }
+
   return (
     <ModalContext.Provider value={{
       isOpen,
+      isDecisionModalOpen,
       toggleModalVisibility,
-      selectedTask
+      toggleDecisionModalVisibility,
+      taskToDelete,
+      selectedTask,
     }}>
       {children}
     </ModalContext.Provider>
