@@ -26,6 +26,12 @@ export const Container = styled.form`
       transform: scale(1.05);
     }
 
+    @media screen and (max-width: ${SCREEN_BREAKPOINTS_ENUM.EXTRA_LARGE}px) {
+      height: 3rem;
+      text-transform: uppercase;
+      font-size: 1.25rem;
+    }
+
     @media screen and (max-width: 69rem) {
       height: 3rem;
       text-transform: uppercase;
@@ -110,6 +116,12 @@ export const CategoryContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
+  @media(max-width: 905px) {
+    flex-direction: column;
+  }
+  @media(max-width: ${SCREEN_BREAKPOINTS_ENUM.SMALL}px) {
+    flex-direction: column;
+  }
 `;
 
 export const RadioAndLabelContainer = styled.div`
@@ -131,6 +143,16 @@ export const RadioAndLabelContainer = styled.div`
 
   & + .radio-and-label-container {
     margin-left: 0.75rem;
+  }
+  @media(max-width: ${SCREEN_BREAKPOINTS_ENUM.EXTRA_LARGE}px) {
+    & + .radio-and-label-container {
+      margin-left: 0;
+      margin-top: 0.5rem;
+    }
+  }
+
+  @media(max-width: 905px) {
+    justify-content: flex-start;
   }
   
   @media(max-width: ${SCREEN_BREAKPOINTS_ENUM.SMALL}px) {
