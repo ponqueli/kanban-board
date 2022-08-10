@@ -3,7 +3,6 @@ import {
   useEffect, 
   useState 
 } from 'react';
-import { useDispatch } from 'react-redux';
 import { ThemeContext } from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
 import { useModal } from '../../hooks/useModal';
@@ -17,10 +16,8 @@ import {
   Label,
   DeleteButton,
 } from './styles';
-import DecisionModal from '../DecisionModal';
 
 export default function Card({ task, index }) {
-  const dispatch = useDispatch();
   const theme = useContext(ThemeContext);
   const [color, setColor] = useState(theme.colors.primary);
   const {toggleModalVisibility, toggleDecisionModalVisibility} = useModal();
@@ -30,14 +27,13 @@ export default function Card({ task, index }) {
       const categoryColor = getCategoryBackgroundColor(theme, task.category);
       setColor(categoryColor);
     }
-  }, [task]);
+  }, [task,theme]);
 
   function handleDeleteTask(event) {
     event.stopPropagation();
     toggleDecisionModalVisibility(true, task);
   }
  
-  //dispatch(deleteTask(task.id));
   return (
     <Draggable draggableId={task.id} index={index}>
     {(provided, snapshot) => (
