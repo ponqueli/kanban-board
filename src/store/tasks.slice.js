@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import mockTasks from '../data/tasks';
+import getTasksFromLocalStorage from '../data/tasks';
 
 const initialState = {
-  tasks: mockTasks,
+  tasks: getTasksFromLocalStorage(),
   searchText: '',
 };
 
@@ -10,8 +10,12 @@ export const tasksSlice = createSlice({
   name: 'tasks',
   initialState,
   reducers: {
+    getTasks:(state) => {
+      state.tasks = getTasksFromLocalStorage();
+    },
     setTasks: (state, action) => {
       state.tasks = action.payload;
+      localStorage.setItem('@GaiaTasks', JSON.stringify(state.tasks));
     },
     setSearchText: (state, action) => {
       state.searchText = action.payload;
@@ -19,6 +23,8 @@ export const tasksSlice = createSlice({
     addTask: (state, action) => {
       const task = action.payload;
       state.tasks = [task, ...state.tasks];
+
+      localStorage.setItem('@GaiaTasks', JSON.stringify(state.tasks));
     },
     updateTask: (state, action) => {
       const taskId = action.payload.id;
@@ -29,11 +35,15 @@ export const tasksSlice = createSlice({
       });
 
       state.tasks = updatedTasks;
+
+      localStorage.setItem('@GaiaTasks', JSON.stringify(state.tasks));
     },
     deleteTask: (state, action) => {
       const taskId = action.payload;
       const updatedTasks = state.tasks.filter((task) => task.id !== taskId);
       state.tasks = updatedTasks;
+
+      localStorage.setItem('@GaiaTasks', JSON.stringify(state.tasks));
     },
     filterTasks: (state, action) => {
       const searchText = state.searchText;
@@ -74,6 +84,7 @@ export const {
   filterTasks,
   clearFilters,
   deleteTask,
+  getTasks,
 } = tasksSlice.actions;
 
 export default tasksSlice.reducer;

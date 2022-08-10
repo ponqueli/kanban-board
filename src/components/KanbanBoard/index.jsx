@@ -51,7 +51,6 @@ export default function KanbanBoard({ toggleTheme }) {
         descriptionHeader="This action cannot be undone"
         onSubmit={handleDeleteTask}  
       />
-      
     </>
   );
 }

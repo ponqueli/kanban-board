@@ -34,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 2.5rem;
     line-height: 2.5rem;
     font-weight: 900;
-    color: ${({ theme }) => theme.colors.text_secondary};
+    color: ${({ theme }) => theme.colors.onPrimary};
 
     span{
       color: ${({ theme }) => theme.colors.onPrimary};

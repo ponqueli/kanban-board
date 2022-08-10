@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { setColumns } from "../../store/columns.slice";
-import { setTasks } from "../../store/tasks.slice";
+import { setColumns, getColumns } from "../../store/columns.slice";
+import { setTasks, getTasks } from "../../store/tasks.slice";
 import List from '../List';
 import { Container } from './styles';
+import { useEffect } from 'react';
 
 export default function Board() {
   const dispatch = useDispatch();
@@ -84,10 +85,15 @@ export default function Board() {
 
   };
 
+  useEffect(() => {
+    dispatch(getColumns());
+    dispatch(getTasks());
+  } , [dispatch]);
+
   return (
     <Container>
       <DragDropContext onDragEnd={onDragEnd}>
-        {columns.map((column, index) => {
+        {columns.map(column => {
 
           const taskArray = [];
           

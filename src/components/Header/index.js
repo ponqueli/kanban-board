@@ -6,15 +6,16 @@ import { Container, SwitchIcon } from "./styles";
 export default function Header({title, colors, toggleTheme}) {
   return (
     <Container color={colors.primary}>
-      <h1>Kanban <span>Board</span></h1>
+      <h1>Gaia's <span>Kanban Board</span></h1>
       <Switch
         onChange={toggleTheme}
         checked={title === 'light'}
         checkedIcon={<SwitchIcon src={SunIcon} alt="Sun"/>} 
         uncheckedIcon={<SwitchIcon src={MoonIcon} alt="Moon"/>} 
         onColor={colors.onPrimary}
-        offColor={colors.switch}
-        activeBoxShadow={`0 0 10px ${colors.onPrimary}`}
+        offColor={colors.background}
+        boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+        activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
       />
     </Container>
   )
