@@ -6,7 +6,7 @@ import { Container, SwitchIcon } from "./styles";
 export default function Header({title, colors, toggleTheme}) {
   return (
     <Container color={colors.primary}>
-      <h1>Gaia's <span>Kanban Board</span></h1>
+      <h1>GaiaFy <span>Board</span></h1>
       <Switch
         onChange={toggleTheme}
         checked={title === 'light'}

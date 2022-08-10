@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { SCREEN_BREAKPOINTS_ENUM } from "../../constants/breakpoints";
 export const Container = styled.form`
   h2 {
     font-size: 1.25rem;
@@ -28,10 +28,20 @@ export const Container = styled.form`
 
     @media screen and (max-width: 69rem) {
       height: 3rem;
+      text-transform: uppercase;
+      font-size: 1.25rem;
     }
 
     &:disabled {
       background: "#E7E7E7";
+    }
+  }
+
+  @media(max-width: ${SCREEN_BREAKPOINTS_ENUM.SMALL}px) {
+    padding: 1rem;
+    font-size: 1.25rem;
+    h2{
+      font-size: 1.4rem;
     }
   }
 `;
@@ -50,6 +60,14 @@ export const Input = styled.input`
 
   ::placeholder {
     color: ${({ theme }) => theme.colors.placeholder};
+  }
+
+  @media(max-width: ${SCREEN_BREAKPOINTS_ENUM.SMALL}px) {
+    height: 3.5rem;
+    ::placeholder {
+      color: ${({ theme }) => theme.colors.placeholder};
+      font-size: 1.25rem;
+    }
   }
 `;
 
@@ -80,6 +98,12 @@ export const TextArea = styled.textarea`
   ::placeholder {
     color: ${({ theme }) => theme.colors.placeholder};
   }
+  @media(max-width: ${SCREEN_BREAKPOINTS_ENUM.SMALL}px) {
+    ::placeholder {
+      color: ${({ theme }) => theme.colors.placeholder};
+      font-size: 1.25rem;
+    }
+  }
 `;
 
 export const CategoryContainer = styled.div`
@@ -107,6 +131,17 @@ export const RadioAndLabelContainer = styled.div`
 
   & + .radio-and-label-container {
     margin-left: 0.75rem;
+  }
+  
+  @media(max-width: ${SCREEN_BREAKPOINTS_ENUM.SMALL}px) {
+    & + .radio-and-label-container{
+      margin-left: 0;
+      margin-top: 0.1rem;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
 
   label {
