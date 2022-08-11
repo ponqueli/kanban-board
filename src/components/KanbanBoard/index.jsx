@@ -1,5 +1,7 @@
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 import { useModal } from '../../hooks/useModal';
 import { useDispatch } from 'react-redux';
 import { deleteTask } from "../../store/tasks.slice";
@@ -41,6 +43,7 @@ export default function KanbanBoard({ toggleTheme }) {
       <TaskModal
         isOpen={isOpen}
         toggleModalVisibility={toggleModalVisibility}
+        toast={toast}
       >
       </TaskModal>
 
@@ -49,7 +52,11 @@ export default function KanbanBoard({ toggleTheme }) {
         onClose={toggleDecisionModalVisibility}
         titleHeader={`Are you sure you want to delete "${taskToDelete?.title}"?`}
         descriptionHeader="This action cannot be undone"
-        onSubmit={handleDeleteTask}  
+        onSubmit={handleDeleteTask} 
+        toast={toast} 
+      />
+      <ToastContainer
+        theme={title === 'light' ? 'light' : 'dark'}
       />
     </>
   );

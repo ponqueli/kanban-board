@@ -19,7 +19,7 @@ import {
 import closeImg from '../../assets/close.svg';
 import { IoWarningOutline } from 'react-icons/io5';
 
-const TaskModal = ({ isOpen, toggleModalVisibility }) => {
+const TaskModal = ({ isOpen, toggleModalVisibility, toast }) => {
   const dispatch = useDispatch();
 
   const theme = useContext(ThemeContext);
@@ -85,6 +85,15 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
     dispatch(updateTask(updatedTask));
     toggleModalVisibility(undefined);
     resetForm();
+    toast.success('Task was successfully saved', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   const validateInputAndSet = (value) => {
@@ -164,6 +173,7 @@ const TaskModal = ({ isOpen, toggleModalVisibility }) => {
 
         <button type="submit">{selectedTask?.id?`Save`: `Add to Backlog`}</button>
       </Container>
+      
     </Modal>
   );
 };

@@ -8,7 +8,8 @@ export default function DecisionModal({
   titleHeader,
   descriptionHeader,
   onSubmit, 
-  mainContent 
+  mainContent,
+  toast,
 }) {
   const handleCloseModal = () => {
     onClose();
@@ -16,6 +17,15 @@ export default function DecisionModal({
 
   const handleSubmitModal = () => {
     onSubmit();
+    toast.success('Task was successfully deleted', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   }
 
   return (
