@@ -10,6 +10,7 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.components_background};
   opacity:  ${({ hideCard }) => hideCard ? 0.2 : 1};
   width: 19.45rem;
+  min-height:6.87rem;
   height: 6.87rem;
   margin: 0.7rem 0.7rem;
   padding: 1.2rem 1rem 0.7rem 1rem;

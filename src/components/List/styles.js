@@ -42,9 +42,10 @@ export const ContainerHeader = styled.header`
 
 export const TaskList = styled.ul`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   height: 65vh;
   overflow-y: auto;
   margin-top: 1.875rem;
-  width: 18.75rem;
+  width: 21.75rem;
 `;
