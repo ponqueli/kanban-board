@@ -59,14 +59,14 @@ export default function DecisionModal({
             type="button" 
             onClick={handleCloseModal}
             >
-            Cancel
+            Nooooooooo!
           </button>
           <button
             className='confirm-button'
             type="button"
             onClick={handleSubmitModal}
             >
-            Save
+            Yes,please!
           </button>
         </Footer>
   
