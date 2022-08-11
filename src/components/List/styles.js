@@ -23,6 +23,9 @@ export const ContainerHeader = styled.header`
   }
 
   button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 3rem;
     height: 3rem;
     border-radius: 1.125rem;
@@ -38,7 +41,10 @@ export const ContainerHeader = styled.header`
 `;
 
 export const TaskList = styled.ul`
+  display: flex;
+  justify-content: center;
   height: 65vh;
   overflow-y: auto;
   margin-top: 1.875rem;
+  width: 18.75rem;
 `;

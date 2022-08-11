@@ -9,7 +9,7 @@ export const Container = styled.div`
 
   background-color: ${({ theme }) => theme.colors.components_background};
   opacity:  ${({ hideCard }) => hideCard ? 0.2 : 1};
-  width: 18.75rem;
+  width: 19.45rem;
   height: 6.87rem;
   margin: 0.7rem 0.7rem;
   padding: 1.2rem 1rem 0.7rem 1rem;
@@ -27,7 +27,7 @@ export const Container = styled.div`
   }
 
   ${({ isDragging }) => isDragging && css`
-    border: 2px solid #fff;
+    border: 1px solid #fff;
     box-shadow: 0 0 .2rem #fff,
             0 0 .2rem #fff,
             0 0 2rem ${({color}) => color},
@@ -40,11 +40,11 @@ export const Container = styled.div`
 
 export const CardBorder = styled.div`
   position: absolute;
-  width: calc(100% + 0.22px);
+  width: calc(100%);
   top: 0px;
   left: 0px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
   height: 11px;
   background-color: ${({color}) => color};
 
