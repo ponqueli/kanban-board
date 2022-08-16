@@ -47,5 +47,5 @@ export const TaskList = styled.ul`
   height: 62vh;
   overflow-y: auto;
   margin-top: 1.875rem;
-  width: 21.75rem;
+  width: 21.85rem;
 `;
