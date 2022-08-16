@@ -141,15 +141,15 @@ export const RadioAndLabelContainer = styled.div`
     filter: brightness(0.9);
   }
 
-  & + .radio-and-label-container {
+  /* & + .radio-and-label-container {
     margin-left: 0.75rem;
-  }
-  @media(max-width: ${SCREEN_BREAKPOINTS_ENUM.EXTRA_LARGE}px) {
+  } */
+  /* @media(max-width: ${SCREEN_BREAKPOINTS_ENUM.EXTRA_LARGE}px) {
     & + .radio-and-label-container {
       margin-left: 0;
       margin-top: 0.5rem;
     }
-  }
+  } */
 
   @media(max-width: 905px) {
     justify-content: flex-start;
