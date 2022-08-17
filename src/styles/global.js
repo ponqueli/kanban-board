@@ -136,6 +136,7 @@ export const GlobalStyle = createGlobalStyle`
   /* Track */
   ::-webkit-scrollbar-track {
     background: ${({ theme }) => theme.colors.scrollbar_background};
+    border-radius: 0.5rem;
   }
 
   /* Handle */
