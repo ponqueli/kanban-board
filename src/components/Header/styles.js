@@ -10,7 +10,6 @@ export const Container = styled.header`
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   h1 {
     margin-right: 1rem;

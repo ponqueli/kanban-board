@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 export const Container = styled.div`
   cursor: grab;
   position: relative;
-  display: flex;
+  display: flex;//${({ hideCard }) => hideCard ? 'none' : 'flex'};
   flex-direction: column;
   justify-content: space-between;
 

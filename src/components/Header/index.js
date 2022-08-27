@@ -1,12 +1,14 @@
 import Switch from 'react-switch';
 import MoonIcon from '../../assets/moon.png';
 import SunIcon from '../../assets/sun.png';
+import SearchInput from '../SearchInput';
 import { Container, SwitchIcon } from "./styles";
 
 export default function Header({title, colors, toggleTheme}) {
   return (
     <Container color={colors.primary}>
       <h1>🐱GaiaFy<span>Board</span></h1>
+      <SearchInput/>
       <Switch
         onChange={toggleTheme}
         checked={title === 'light'}

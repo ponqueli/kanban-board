@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import getTasksFromLocalStorage from '../data/tasks';
+import { CATEGORIES_ENUM } from '../constants/enums';
 
 const initialState = {
   tasks: getTasksFromLocalStorage(),
@@ -47,7 +48,7 @@ export const tasksSlice = createSlice({
     },
     filterTasks: (state, action) => {
       const searchText = state.searchText;
-      const categories = action.payload.categories;
+      const categories = action.payload.categories || Object.values(CATEGORIES_ENUM);
 
       const filteredTasks = [...state.tasks].map((task) => {
         if (searchText.length > 0) {
