@@ -14,6 +14,16 @@ export const Container = styled.header`
   h1 {
     margin-right: 1rem;
   }
+
+  @media(max-width: 602px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    height: 18vh;
+  }
 `;
 
 export const SwitchIcon = styled.img`

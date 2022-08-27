@@ -16,7 +16,6 @@ import {
   Label,
   DeleteButton,
 } from './styles';
-import "./style.css";
 
 export default function Card({ task, index }) {
   const theme = useContext(ThemeContext);
@@ -39,7 +38,6 @@ export default function Card({ task, index }) {
     <Draggable draggableId={task.id} index={index}>
     {(provided, snapshot) => (
       <Container
-        className={!snapshot.isDragging ? 'shake-horizontal': ''}
         onClick={() => toggleModalVisibility(task)}
         hideCard={task.hidden}
         ref={provided.innerRef} 

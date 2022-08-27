@@ -14,6 +14,7 @@ export const Container = styled.div`
 
   input {
     width: calc(100% - 2.5rem);
+    min-width: 50px;
     background: var(--background);
     border: none;
     outline: none;
@@ -32,17 +33,27 @@ export const Container = styled.div`
   }
 
   img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 1.75rem;
     height: 1.75rem;
     margin-left: 0.5rem;
     padding: 2px;
     background-color: ${({ theme }) => theme.colors.primary};
+    color: aliceblue;
     border-radius: 100%;
     transition: transform 0.2s;
 
     :hover {
-      transform: scale(1.05);
+      transform: scale(1.025);
       cursor: pointer;
     }
+  }
+
+  @media(max-width: 602px) {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 `;

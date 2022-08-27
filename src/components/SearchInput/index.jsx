@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import React, { useEffect, useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { ThemeContext } from 'styled-components';
 import { setSearchText, clearFilters, filterTasks } from "../../store/tasks.slice";
-import searchIcon from "../../assets/search.png";
+import searchDark from "../../assets/search.png";
 import { Container } from "./styles";
 
 const SearchInput = () => {
+  const theme = useContext(ThemeContext);
   const dispatch = useDispatch();
   const { searchText } = useSelector((state) => state.tasks);
 
@@ -26,7 +27,7 @@ const SearchInput = () => {
         value={searchText}
         onChange={(e) => dispatch(setSearchText(e.target.value))}
       />
-      <img src={searchIcon} alt="Cat as search icon"/>
+      <img src={searchDark} alt="search icon"/>
     </Container>
   )
 }
