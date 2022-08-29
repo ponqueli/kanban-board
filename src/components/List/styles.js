@@ -44,7 +44,7 @@ export const TaskList = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 65vh;
+  height: 60vh;
   overflow-y: auto;
   margin-top: 1.875rem;
   width: 21.85rem;
