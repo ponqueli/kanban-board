@@ -20,6 +20,12 @@ export const Container = styled.div`
   box-shadow: 0 1px 4px 0 rgba(192, 208, 230, 0.8);
   border-top: rgba(230,236,245,0.4);
 
+  transition: filter 0.2s;
+
+  :hover {
+    filter: brightness(1.2);
+  }
+
   img {
     width: 1.5rem;
     height: 1.5rem;
