@@ -43,12 +43,6 @@ export const Container = styled.div`
     background-color: ${({ theme }) => theme.colors.primary};
     color: aliceblue;
     border-radius: 100%;
-    transition: transform 0.2s;
-
-    :hover {
-      transform: scale(1.025);
-      cursor: pointer;
-    }
   }
 
   @media(max-width: 602px) {

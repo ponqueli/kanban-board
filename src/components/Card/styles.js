@@ -23,7 +23,7 @@ export const Container = styled.div`
   transition: filter 0.2s;
 
   :hover {
-    filter: brightness(1.2);
+    filter: brightness(${({ theme }) => theme.title === "dark" ? 1.2 : 0.92});
   }
 
   img {
