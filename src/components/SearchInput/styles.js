@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   width: 17vw;
+  min-width: 12.5rem;
   margin-left: auto;
   margin-right: 1rem;
   border-radius: 1.125rem;
@@ -14,7 +15,7 @@ export const Container = styled.div`
 
   input {
     width: calc(100% - 2.5rem);
-    min-width: 50px;
+    //min-width: calc(100% - 4rem);
     background: var(--background);
     border: none;
     outline: none;
@@ -37,7 +38,9 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     width: 1.75rem;
+    min-width: 1.75rem;
     height: 1.75rem;
+    min-height: 1.75rem;
     margin-left: 0.5rem;
     padding: 2px;
     background-color: ${({ theme }) => theme.colors.primary};
