@@ -92,7 +92,13 @@ export const ValidationMessage = styled.p`
 
 export const TextArea = styled.textarea`
   width: 100%;
+  max-width: max-content;
+  min-width: 100%;
+  
   height: 7rem;
+  min-height: 7rem;
+  max-height: 40vh;
+  
   margin: 0 0 1rem 0;
   border-radius: 0.5rem;
   padding: 0.5rem;
