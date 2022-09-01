@@ -28,8 +28,8 @@ export const Container = styled.header`
     justify-content: center;
     padding-bottom: 1rem;
     padding-top: 1rem;
-    height: 22vh;
-    min-height: 22vh;
+    height: 25vh;
+    min-height: 25vh;
   }
 `;
 
