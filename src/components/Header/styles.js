@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   height: 15vh;
-  min-height: 15vh;
+  min-height: 5rem;
   width: 100vw;
   min-width: 18.5rem;
   padding: 0  2rem;
@@ -28,8 +28,8 @@ export const Container = styled.header`
     justify-content: center;
     padding-bottom: 1rem;
     padding-top: 1rem;
-    height: 30vh;
-    min-height: 30vh;
+    height: 20vh;
+    min-height: 10rem;
   }
 `;
 
