@@ -104,6 +104,7 @@ const TaskModal = ({ isOpen, toggleModalVisibility, toast }) => {
   };
 
   useEffect(() => {
+    setValidationMessage(undefined);
     setTitle(selectedTask?.title ? selectedTask?.title : '');
     setDescription(selectedTask?.description ? selectedTask.description : '');
     setTaskCategory(selectedTask?.category || CATEGORIES_ENUM.FEATURE);
