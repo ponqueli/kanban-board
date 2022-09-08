@@ -154,9 +154,8 @@ const TaskModal = ({ isOpen, toggleModalVisibility, toast }) => {
             <RadioAndLabelContainer
               key={category}
               className="radio-and-label-container"
-              backgroundColor={() =>
-                getCategoryBackgroundColor(theme, category)
-              }
+              backgroundColor={() => getCategoryBackgroundColor(theme, category)}
+              onClick={() => setTaskCategory(category)}
             >
               <label>
                 <input
