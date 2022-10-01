@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Hind Vadodara', sans-serif;
   }
 
   html {
@@ -34,7 +34,6 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 2.5rem;
     line-height: 2.5rem;
     font-weight: 900;
-    color: ${({ theme }) => theme.colors.onPrimary};
 
     span{
       color: ${({ theme }) => theme.colors.onPrimary};
@@ -148,5 +147,15 @@ export const GlobalStyle = createGlobalStyle`
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: ${({ theme }) => theme.colors.scrollbar_thumb_hover};
+  }
+
+  .react-switch-bg{
+    top: 3px;
+  }
+  .react-switch-handle{
+    top: 4px !important;
+  }
+  .MuiAvatar-root{
+    margin-right: 0.5rem;
   }
 `;

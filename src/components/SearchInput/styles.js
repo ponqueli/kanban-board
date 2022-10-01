@@ -6,7 +6,6 @@ export const Container = styled.div`
   width: 17vw;
   min-width: 12.5rem;
   margin-left: auto;
-  margin-right: 1rem;
   border-radius: 1.125rem;
   -webkit-box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.11);
   box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.11);

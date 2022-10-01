@@ -22,7 +22,8 @@ const darkTheme = {
     scrollbar_thumb_hover: '#636363',
     save: '#fff',
     disabled: '#E7E7E7',
-  }
+    loginBc: '#f47e528f',
+  },
 };
 
 export default darkTheme;

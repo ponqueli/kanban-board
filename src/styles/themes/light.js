@@ -22,6 +22,7 @@ const lightTheme = {
     scrollbar_thumb_hover: '#BBBBBB',
     save: '#fff',
     disabled: '#E7E7E7',
+    loginBc: '#f47e528f',
   },
 }
 

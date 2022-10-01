@@ -11,7 +11,7 @@ import Header from '../Header';
 import TaskModal from '../TaskModal';
 import { Container } from './styles';
 
-export default function KanbanBoard({ toggleTheme }) {
+export default function KanbanBoard({ toggleTheme, logOut, user }) {
   const theme = useContext(ThemeContext);
   const dispatch = useDispatch();
   const { colors, title } = theme;
@@ -35,6 +35,8 @@ export default function KanbanBoard({ toggleTheme }) {
           title={title}
           colors={colors}
           toggleTheme={toggleTheme}
+          logOut={logOut}
+          user={user}
         >
         </Header>
         <Board />
