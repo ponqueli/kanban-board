@@ -51,7 +51,21 @@ export const columnsSlice = createSlice({
         JSON.stringify(state.columns)
       );
     },
+    deleteTaskFromColumns: (state, action) => {
+      const taskId = action.payload;
+      const columns = state.columns.map((column) => {
+        const tasksIds = column.tasksIds.filter((id) => id !== taskId);
+        return { ...column, tasksIds };
+      });
+
+      state.columns = columns;
+
+      localStorage.setItem(
+        '@GaiaTasksColumnsIds',
+        JSON.stringify(state.columns)
+      );
+    }
   },
 });
-export const { setColumns, updatedColumns, getColumns } = columnsSlice.actions;
+export const { setColumns, updatedColumns, getColumns, deleteTaskFromColumns } = columnsSlice.actions;
 export default columnsSlice.reducer;

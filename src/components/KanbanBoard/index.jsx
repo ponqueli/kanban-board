@@ -10,6 +10,7 @@ import DecisionModal from '../DecisionModal';
 import Header from '../Header';
 import TaskModal from '../TaskModal';
 import { Container } from './styles';
+import { deleteTaskFromColumns } from '../../store/columns.slice';
 
 export default function KanbanBoard({ toggleTheme }) {
   const theme = useContext(ThemeContext);
@@ -25,6 +26,7 @@ export default function KanbanBoard({ toggleTheme }) {
 
   function handleDeleteTask() {
     dispatch(deleteTask(taskToDelete.id));
+    dispatch(deleteTaskFromColumns(taskToDelete.id));
     toggleDecisionModalVisibility(false);
   }
 
