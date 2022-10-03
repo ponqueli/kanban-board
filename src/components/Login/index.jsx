@@ -14,7 +14,7 @@ export default function Login({
       <span className="cat">🐱</span>
       <Content>
         <Header>
-          <h2>Welcome back!</h2>
+          <h2>Welcome to <span className='highlight'>GaiaFyBoard</span>!</h2>
           <p>Sign in to continue</p>
           <p>👇</p>
         </Header>

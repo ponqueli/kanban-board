@@ -69,6 +69,11 @@ export const Header = styled.header`
     letter-spacing: .36px;
     line-height: 1rem;
     text-align: center;
+
+    span.highlight{
+      color: #EB622F;
+      font-weight: 900;
+    }
   }
 `;
 
