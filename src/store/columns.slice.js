@@ -1,23 +1,48 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { STATUS_ENUM } from '../constants/enums';
 import mockColumns from '../data/columns';
+import { client, q } from '../services/fauna';
+import { gapi } from 'gapi-script';
 
 const initialState = {
   columns: mockColumns,
   updatedColumns: undefined,
 };
 
-function getColumnsFromLocalStorage(){
-  const columns = JSON.parse(localStorage.getItem('@GaiaTasksColumnsIds'));
-  return columns ? columns : mockColumns;
+async function getColumnsByUserFromDB(){
+  //get gmail user profile data
+  const auth = gapi.auth2.getAuthInstance();
+  const profile = auth.currentUser.get().getBasicProfile();
+  let allColumns = [];
+  try {
+    let allColumnsByUser = await client.query(
+      q.Map(
+        q.Paginate(q.Match(q.Index('columns_by_user_ref'), q.Casefold(profile.getEmail()))),
+        q.Lambda(x => q.Get(x))
+      )
+    );
+
+    //create an array of all columns to return using reduce method
+    allColumns = allColumnsByUser.data.reduce((acc, column) => {
+      acc.push(column.data);
+      return acc;
+    }, []);
+
+  } catch (error) {
+    if (error.requestResult.statusCode === 404) {
+      console.log('Columns were not created ');
+    }
+  }
+
+  return allColumns;
 };
 
 export const columnsSlice = createSlice({
   name: 'columns',
   initialState,
   reducers: {
-    getColumns: (state) => {
-      state.columns = getColumnsFromLocalStorage();
+    getColumns: async (state)  => {
+      state.columns = await getColumnsByUserFromDB();
     },
     setColumns: (state, action) => {
       state.columns = action.payload;

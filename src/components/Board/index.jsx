@@ -86,8 +86,10 @@ export default function Board() {
   };
 
   useEffect(() => {
+
     dispatch(getColumns());
     dispatch(getTasks());
+    
   } , [dispatch]);
 
   return (

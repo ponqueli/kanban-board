@@ -5,31 +5,36 @@ const mockColumns = [
     id: STATUS_ENUM.BACKLOG,
     title: 'Backlog',
     creatable: false,
-    tasksIds: []
+    tasksIds: [],
+    userId: undefined,
   },
   {
     id: STATUS_ENUM.TO_DO,
     title: 'To Do',
     creatable: true,
-    tasksIds: []
+    tasksIds: [],
+    userId: undefined,
   },
   {
     id: STATUS_ENUM.DOING,
     title: 'Doing',
     creatable: true,
-    tasksIds: []
+    tasksIds: [],
+    userId: undefined,
   },
   {
     id: STATUS_ENUM.IN_REVIEW,
     title: 'In Review',
     creatable: true,
-    tasksIds: []
+    tasksIds: [],
+    userId: undefined,
   },
   {
     id: STATUS_ENUM.DONE,
     title: 'Done',
     creatable: true,
-    tasksIds: []
+    tasksIds: [],
+    userId: undefined,
   }
 ]
 

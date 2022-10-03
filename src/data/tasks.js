@@ -1,6 +1,6 @@
-const getTasksFromLocalStorage = () => {
+const getTasksByUserFromDB = async () => {
   const tasks = localStorage.getItem('@GaiaTasks');
   return tasks ? JSON.parse(tasks) : [];
 }
 
-export default getTasksFromLocalStorage;
+export default getTasksByUserFromDB;

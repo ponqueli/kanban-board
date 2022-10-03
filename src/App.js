@@ -82,6 +82,116 @@ function App() {
         } catch (error) {
           console.log(error);
         }
+
+        const newBackLogColumn = {
+          data: {
+            id: 'Backlog',
+            title: 'Backlog',
+            creatable: false,
+            tasksIds: [],
+            userId: profile.getEmail(),
+          }
+        }
+
+        try {
+          await client.query(
+            q.Create(
+              q.Collection('boardColumns'),
+              newBackLogColumn
+            )
+          );
+
+        } catch (error) {
+          console.log(error);
+        }
+
+        const newToDoColumn = {
+          data: {
+            id: 'To Do',
+            title: 'To Do',
+            creatable: false,
+            tasksIds: [],
+            userId: profile.getEmail(),
+          }
+        }
+
+        try {
+          await client.query(
+            q.Create(
+              q.Collection('boardColumns'),
+              newToDoColumn
+            )
+          );
+
+        } catch (error) {
+          console.log(error);
+        }
+
+        const newDoingColumn = {
+          data: {
+            id: 'Doing',
+            title: 'Doing',
+            creatable: false,
+            tasksIds: [],
+            userId: profile.getEmail(),
+          }
+        }
+
+        try {
+          await client.query(
+            q.Create(
+              q.Collection('boardColumns'),
+              newDoingColumn
+            )
+          );
+
+        } catch (error) {
+          console.log(error);
+        }
+
+        const newInReviewColumn = {
+          data: {
+            id: 'In Review',
+            title: 'In Review',
+            creatable: false,
+            tasksIds: [],
+            userId: profile.getEmail(),
+          }
+        }
+
+        try {
+          await client.query(
+            q.Create(
+              q.Collection('boardColumns'),
+              newInReviewColumn
+            )
+          );
+
+        } catch (error) {
+          console.log(error);
+        }
+
+        const newDoneColumn = {
+          data: {
+            id: 'Done',
+            title: 'Done',
+            creatable: false,
+            tasksIds: [],
+            userId: profile.getEmail(),
+          }
+        }
+
+        try {
+          await client.query(
+            q.Create(
+              q.Collection('boardColumns'),
+              newDoneColumn
+            )
+          );
+
+        } catch (error) {
+          console.log(error);
+        }
       } else {
         console.log(error);
       }
