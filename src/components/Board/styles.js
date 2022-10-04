@@ -7,4 +7,8 @@ export const Container = styled.div`
   height: 85vh;
   width: 100vw;
   overflow-x: auto;
+
+  @media (max-height: 502px) {
+    height: 83vh;
+  }
 `;

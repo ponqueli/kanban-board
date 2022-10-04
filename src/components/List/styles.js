@@ -48,6 +48,10 @@ export const TaskList = styled.ul`
   height: 66vh;
   min-height: 66vh;
   overflow-y: auto;
-  //margin-top: 1.875rem;
   width: 21.85rem;
+
+  @media (max-height: 502px) {
+    height: 60vh;
+    min-height: 60vh;
+  }
 `;
