@@ -14,7 +14,8 @@ export const ContainerHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 3rem; 
+  height: 10vh; 
+  min-height: 70px;
 
   h2 {
     font-size: 1.5rem;
@@ -44,8 +45,9 @@ export const TaskList = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 60vh;
+  height: 66vh;
+  min-height: 66vh;
   overflow-y: auto;
-  margin-top: 1.875rem;
+  //margin-top: 1.875rem;
   width: 21.85rem;
 `;
