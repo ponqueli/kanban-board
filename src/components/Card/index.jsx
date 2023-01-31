@@ -3,6 +3,7 @@ import {
   useEffect, 
   useState 
 } from 'react';
+import { Tooltip } from '@mantine/core';
 import { ThemeContext } from 'styled-components';
 import { Draggable } from 'react-beautiful-dnd';
 import { useModal } from '../../hooks/useModal';
@@ -51,17 +52,33 @@ export default function Card({ task, index }) {
           <Label>{task.title}</Label>
         </header>
         <CardBottom>
-          <CategoryCard color={color}>
-            <p>{task.category}</p>
-          </CategoryCard>
+          <Tooltip 
+            label={`Created at ${new Intl.DateTimeFormat('pt-BR').format(new Date(task?.createdAt))}`} 
+            withArrow 
+            arrowSize={6}
+            position="right"
+            transition="fade"
+            >
+            <CategoryCard color={color}>
+              <p>{task.category}</p>
+            </CategoryCard>
+          </Tooltip>
 
-          <DeleteButton>
-            <MdDelete
-              onClick={handleDeleteTask} 
-              size={24} 
-              className="onHover"
-            />
-          </DeleteButton>
+          <Tooltip
+            label={`Delete ${task.title}`}
+            withArrow
+            arrowSize={6}
+            position="left"
+            transition="fade"
+          >
+            <DeleteButton>
+              <MdDelete
+                onClick={handleDeleteTask} 
+                size={24} 
+                className="onHover"
+              />
+            </DeleteButton>
+          </Tooltip>
         </CardBottom>
       </Container>
     )}

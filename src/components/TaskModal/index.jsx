@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import { Tooltip } from '@mantine/core';
 import { v4 as uuidv4 } from 'uuid';
 import { ThemeContext } from 'styled-components';
 import Modal from 'react-modal';
@@ -119,13 +120,21 @@ const TaskModal = ({ isOpen, toggleModalVisibility, toast }) => {
       overlayClassName="modal-modal-overlay"
       className="react-modal-content"
     >
-      <button
-        className="react-modal-close"
-        type="button"
-        onClick={handleCloseModal}
+      <Tooltip
+        label="Close Modal"
+        withArrow
+        arrowSize={6}
+        position="left"
+        transition="fade"
       >
-        <img src={closeImg} alt="X Button to close modal" />
-      </button>
+        <button
+          className="react-modal-close"
+          type="button"
+          onClick={handleCloseModal}
+        >
+          <img src={closeImg} alt="X Button to close modal" />
+        </button>
+      </Tooltip>
 
       <Container onSubmit={handleCreateNewTask}>
         <h2>{selectedTask?.id?`You Are Editing 🐱`: "New Task"}</h2>
