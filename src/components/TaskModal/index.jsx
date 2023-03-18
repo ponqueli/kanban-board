@@ -142,7 +142,7 @@ const TaskModal = ({ isOpen, toggleModalVisibility, toast }) => {
           type="text"
           placeholder="Title"
           value={title}
-          maxLength={50}
+          maxLength={200}
           onChange={(event) => validateInputAndSet(event.target.value)}
           showValidationMessage={!!validationMessage}
         />
